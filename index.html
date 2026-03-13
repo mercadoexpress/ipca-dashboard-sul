@@ -98,80 +98,64 @@
       gap: 5px;
     }
     .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+      width: 8px;
+      height: 8px;
       background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4ade80;
     }
 
-    /* ── HERO STATS ── */
-    .hero-stats {
-      background: linear-gradient(180deg, #1e429f 0%, #1a56db 100%);
-      padding: 28px 24px 36px;
-    }
-    .hero-stats-inner {
+    /* ── MAIN CONTENT ── */
+    main {
       max-width: 1400px;
       margin: 0 auto;
+      padding: 24px;
     }
-    .hero-label {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-    .stats-grid {
+
+    /* ── SUMMARY CARDS ── */
+    .summary-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
+      margin-bottom: 24px;
     }
-    .stat-card {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 14px;
-      padding: 18px 20px;
-      color: #fff;
-      transition: background 0.2s;
+    .summary-card {
+      background: linear-gradient(135deg, #1e429f 0%, #1a56db 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
     }
-    .stat-card:hover { background: rgba(255,255,255,0.16); }
-    .stat-label {
-      font-size: 0.72rem;
-      opacity: 0.75;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 6px;
-    }
-    .stat-value {
-      font-size: 2rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .stat-sub {
-      font-size: 0.72rem;
-      opacity: 0.7;
-    }
-    .stat-up { color: #fca5a5; }
-    .stat-down { color: #86efac; }
-    .stat-neutral { color: #fde68a; }
+    .summary-card:hover { transform: translateY(-4px); }
+    .summary-card.light { background: #fff; color: var(--neutral); border: 1px solid var(--border); }
+    .summary-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; margin-bottom: 6px; }
+    .summary-value { font-size: 1.6rem; font-weight: 800; margin-bottom: 4px; }
+    .summary-trend { font-size: 0.78rem; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+    .trend-up { color: #f87171; }
+    .trend-down { color: #4ade80; }
 
-    /* ── MAIN LAYOUT ── */
-    .main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 32px 24px 60px;
+    /* ── INFO BAR ── */
+    .info-bar {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: #065f46;
     }
 
-    /* ── SECTION TITLES ── */
+    /* ── SECTIONS ── */
     .section-header {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 20px;
-      margin-top: 40px;
+      margin: 32px 0 20px;
     }
-    .section-header:first-child { margin-top: 0; }
     .section-icon {
       width: 36px;
       height: 36px;
@@ -180,360 +164,178 @@
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      flex-shrink: 0;
     }
-    .section-icon.blue { background: var(--primary-light); }
-    .section-icon.green { background: #d1fae5; }
-    .section-icon.orange { background: #fef3c7; }
-    .section-icon.purple { background: #ede9fe; }
-    .section-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--neutral);
-    }
-    .section-subtitle {
-      font-size: 0.8rem;
-      color: var(--neutral-light);
-      margin-top: 2px;
-    }
+    .section-icon.blue { background: #e0e7ff; color: #4338ca; }
+    .section-icon.green { background: #dcfce7; color: #15803d; }
+    .section-icon.orange { background: #ffedd5; color: #9a3412; }
+    .section-title { font-size: 1.15rem; font-weight: 700; color: var(--neutral); }
+    .section-subtitle { font-size: 0.85rem; color: var(--neutral-light); margin-top: 2px; }
 
     /* ── CARDS ── */
     .card {
       background: var(--card);
-      border: 1px solid var(--border);
       border-radius: 16px;
+      border: 1px solid var(--border);
       padding: 24px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
     }
-    .card-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--neutral);
-      margin-bottom: 4px;
-    }
-    .card-subtitle {
-      font-size: 0.75rem;
-      color: var(--neutral-light);
-      margin-bottom: 20px;
-    }
+    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--neutral); }
+    .card-subtitle { font-size: 0.82rem; color: var(--neutral-light); margin-bottom: 20px; }
 
-    /* ── GRID LAYOUTS ── */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-    .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .col-span-2 { grid-column: span 2; }
-    .col-span-3 { grid-column: span 3; }
+    /* ── GRIDS ── */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
 
-    /* ── CHART CONTAINERS ── */
-    .chart-container {
-      position: relative;
-      width: 100%;
-    }
-    .chart-container.tall { height: 360px; }
-    .chart-container.medium { height: 280px; }
-    .chart-container.short { height: 220px; }
+    /* ── CHARTS ── */
+    .chart-container { position: relative; width: 100%; }
+    .chart-container.tall { height: 320px; }
+    .chart-container.medium { height: 260px; }
 
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+    /* ── LEGEND ── */
+    .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; justify-content: center; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 500; color: var(--neutral-light); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .legend-line { width: 16px; height: 3px; border-radius: 2px; }
+
+    /* ── FILTERS ── */
+    .filter-bar { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
     .filter-btn {
       padding: 6px 16px;
       border-radius: 20px;
-      border: 1.5px solid var(--border);
+      border: 1px solid var(--border);
       background: #fff;
       font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.18s;
+      font-weight: 600;
       color: var(--neutral-light);
+      cursor: pointer;
+      transition: all 0.2s;
     }
-    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
-    .filter-btn.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #fff;
-    }
+    .filter-btn:hover { background: #f3f4f6; }
+    .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     .filter-btn.rs.active { background: var(--rs); border-color: var(--rs); }
     .filter-btn.pr.active { background: var(--pr); border-color: var(--pr); }
     .filter-btn.sc.active { background: var(--sc); border-color: var(--sc); }
 
-    /* ── LEGEND ── */
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: var(--neutral-light);
-    }
-    .legend-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .legend-line {
-      width: 18px;
-      height: 3px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    /* ── INSIGHT BOXES ── */
-    .insights-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .insight-box {
-      border-radius: 14px;
-      padding: 18px 20px;
-      border-left: 4px solid;
-    }
-    .insight-box.blue { background: #eff6ff; border-color: var(--primary); }
-    .insight-box.green { background: #ecfdf5; border-color: var(--secondary); }
-    .insight-box.orange { background: #fffbeb; border-color: var(--warning); }
-    .insight-box.red { background: #fef2f2; border-color: var(--danger); }
-    .insight-box.purple { background: #f5f3ff; border-color: #7e3af2; }
-    .insight-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .insight-box.blue .insight-title { color: var(--primary-dark); }
-    .insight-box.green .insight-title { color: #065f46; }
-    .insight-box.orange .insight-title { color: #92400e; }
-    .insight-box.red .insight-title { color: #991b1b; }
-    .insight-box.purple .insight-title { color: #4c1d95; }
-    .insight-text {
-      font-size: 0.78rem;
-      line-height: 1.55;
-      color: var(--neutral);
-    }
-
-    /* ── ANALYSIS TABLE ── */
-    .analysis-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-    }
-    .analysis-table th {
-      background: var(--bg);
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: 600;
-      color: var(--neutral-light);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-bottom: 2px solid var(--border);
-    }
-    .analysis-table td {
-      padding: 11px 14px;
-      border-bottom: 1px solid var(--border);
-      color: var(--neutral);
-    }
-    .analysis-table tr:last-child td { border-bottom: none; }
-    .analysis-table tr:hover td { background: var(--bg); }
-    .tag {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-size: 0.7rem;
-      font-weight: 600;
-    }
-    .tag-up { background: #fef2f2; color: #991b1b; }
-    .tag-down { background: #ecfdf5; color: #065f46; }
-    .tag-neutral { background: #fffbeb; color: #92400e; }
-
-    /* ── PROGRESS BARS ── */
-    .progress-list { display: flex; flex-direction: column; gap: 12px; }
-    .progress-item { }
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 5px;
-    }
-    .progress-label { font-size: 0.8rem; font-weight: 500; }
-    .progress-value { font-size: 0.8rem; font-weight: 700; }
-    .progress-bar-bg {
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 0.8s ease;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #1f2937;
-      color: rgba(255,255,255,0.65);
-      padding: 28px 24px;
-      text-align: center;
-      font-size: 0.78rem;
-      line-height: 1.7;
-    }
-    footer strong { color: rgba(255,255,255,0.9); }
-
     /* ── TABS ── */
-    .tabs {
-      display: flex;
-      gap: 0;
-      border-bottom: 2px solid var(--border);
-      margin-bottom: 24px;
-    }
+    .tabs { display: flex; gap: 4px; margin-bottom: 20px; background: #f3f4f6; padding: 4px; border-radius: 10px; width: fit-content; }
     .tab-btn {
-      padding: 10px 20px;
+      padding: 8px 18px;
+      border-radius: 8px;
       border: none;
-      background: none;
+      background: transparent;
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--neutral-light);
       cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
-      transition: all 0.18s;
+      transition: all 0.2s;
     }
-    .tab-btn:hover { color: var(--primary); }
-    .tab-btn.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-      font-weight: 600;
-    }
+    .tab-btn.active { background: #fff; color: var(--primary); shadow: 0 1px 2px rgba(0,0,0,0.1); }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    /* ── TABLES ── */
+    .analysis-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .analysis-table th { text-align: left; padding: 12px; border-bottom: 2px solid var(--border); color: var(--neutral-light); font-weight: 600; }
+    .analysis-table td { padding: 12px; border-bottom: 1px solid var(--border); }
+    .tag { padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; }
+    .tag-up { background: #fee2e2; color: #b91c1c; }
+    .tag-down { background: #dcfce7; color: #15803d; }
+    .tag-neutral { background: #f3f4f6; color: #4b5563; }
+
+    /* ── PROGRESS LIST ── */
+    .progress-list { display: flex; flex-direction: column; gap: 14px; }
+    .progress-item { width: 100%; }
+    .progress-header { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.8rem; font-weight: 600; }
+    .progress-bar-bg { width: 100%; height: 8px; background: #f3f4f6; border-radius: 4px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease-out; }
+
+    /* ── INSIGHT BOXES ── */
+    .insight-box { padding: 16px; border-radius: 12px; border-left: 4px solid #ddd; margin-bottom: 12px; }
+    .insight-box.blue { background: #eff6ff; border-left-color: #3b82f6; }
+    .insight-box.green { background: #f0fdf4; border-left-color: #22c55e; }
+    .insight-box.orange { background: #fff7ed; border-left-color: #f97316; }
+    .insight-box.red { background: #fef2f2; border-left-color: #ef4444; }
+    .insight-box.purple { background: #f5f3ff; border-left-color: #8b5cf6; }
+    .insight-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; }
+    .insight-text { font-size: 0.82rem; line-height: 1.5; color: var(--neutral); }
+
+    .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+    /* ── FOOTER ── */
+    footer { background: #111827; color: #9ca3af; padding: 48px 24px; text-align: center; font-size: 0.82rem; line-height: 1.6; }
+
+    @media (max-width: 768px) {
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .col-span-2, .col-span-3 { grid-column: span 1; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .header-inner { justify-content: center; text-align: center; }
     }
-    @media (max-width: 600px) {
-      .header-inner { flex-direction: column; align-items: flex-start; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .stat-value { font-size: 1.6rem; }
-      .main { padding: 20px 14px 40px; }
-    }
-
-    /* ── TOOLTIP CUSTOM ── */
-    .update-info {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
-      border-radius: 10px;
-      padding: 10px 16px;
-      font-size: 0.78rem;
-      color: #065f46;
-      margin-bottom: 28px;
-    }
-    .update-info-icon { font-size: 16px; }
-
-    /* ── DIVIDER ── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 36px 0;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-<!-- ══════════════ HEADER ══════════════ -->
 <header>
   <div class="header-inner">
     <div class="header-logo">
-      <div class="header-icon">📊</div>
+      <div class="header-icon">📈</div>
       <div class="header-title">
         <h1>Dashboard IPCA — Setor Alimentício</h1>
         <p>Monitoramento de inflação com foco em RS, SC e PR · Atualizado: Fev/2026</p>
       </div>
     </div>
     <div class="header-badges">
-      <div class="badge"><span class="badge-dot"></span> Dados IBGE</div>
+      <div class="badge"><div class="badge-dot"></div> Dados IBGE</div>
       <div class="badge">🍽️ Alimentação</div>
       <div class="badge">🗺️ Sul do Brasil</div>
     </div>
   </div>
 </header>
 
-<!-- ══════════════ HERO STATS ══════════════ -->
-<div class="hero-stats">
-  <div class="hero-stats-inner">
-    <div class="hero-label">📌 Indicadores-chave · Fevereiro 2026</div>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-label">IPCA Nacional (Fev/26)</div>
-        <div class="stat-value">0,70<span style="font-size:1.1rem">%</span></div>
-        <div class="stat-sub stat-up">▲ Acumulado 12m: 3,81%</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Alimentação e Bebidas (Fev/26)</div>
-        <div class="stat-value">0,26<span style="font-size:1.1rem">%</span></div>
-        <div class="stat-sub stat-down">▼ Abaixo do IPCA geral</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Porto Alegre (RS) — Acum. 2025</div>
-        <div class="stat-value">4,79<span style="font-size:1.1rem">%</span></div>
-        <div class="stat-sub stat-up">▲ Acima da média nacional</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Curitiba (PR) — Acum. 2025</div>
-        <div class="stat-value">3,84<span style="font-size:1.1rem">%</span></div>
-        <div class="stat-sub stat-down">▼ Abaixo da média nacional</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Florianópolis (SC) — Acum. 2025</div>
-        <div class="stat-value">5,17<span style="font-size:1.1rem">%</span></div>
-        <div class="stat-sub stat-up">▲ Acima da média nacional</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Alim. Fora do Domicílio 2025</div>
-        <div class="stat-value">6,97<span style="font-size:1.1rem">%</span></div>
-        <div class="stat-sub stat-up">▲ Acima da meta de inflação</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Meta de Inflação 2025</div>
-        <div class="stat-value">3,00<span style="font-size:1.1rem">%</span></div>
-        <div class="stat-sub stat-neutral">Teto: 4,50% · IPCA: 4,26%</div>
-      </div>
+<main>
+  <!-- Resumo Indicadores -->
+  <div style="font-size:0.75rem; font-weight:700; color:var(--neutral-light); margin-bottom:12px; display:flex; align-items:center; gap:6px;">
+    📌 INDICADORES-CHAVE · FEVEREIRO 2026
+  </div>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="summary-label">IPCA Nacional (Fev/26)</div>
+      <div class="summary-value">0,70%</div>
+      <div class="summary-trend">▲ Acumulado 12m: 3,81%</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Alimentação e Bebidas (Fev/26)</div>
+      <div class="summary-value">0,26%</div>
+      <div class="summary-trend trend-down">▼ Abaixo do IPCA geral</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Porto Alegre (RS) — Acum. 2025</div>
+      <div class="summary-value">4,79%</div>
+      <div class="summary-trend">▲ Acima da média nacional</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Curitiba (PR) — Acum. 2025</div>
+      <div class="summary-value">3,84%</div>
+      <div class="summary-trend trend-down">▼ Abaixo da média nacional</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Florianópolis (SC) — Acum. 2025</div>
+      <div class="summary-value">5,17%</div>
+      <div class="summary-trend">▲ Acima da média nacional</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Alim. Fora do Domicílio 2025</div>
+      <div class="summary-value">6,97%</div>
+      <div class="summary-trend">▲ Acima da meta de inflação</div>
+    </div>
+    <div class="summary-card light">
+      <div class="summary-label">Meta de Inflação 2025</div>
+      <div class="summary-value" style="color:var(--neutral)">3,00%</div>
+      <div class="summary-trend" style="color:var(--neutral-light)">Teto: 4,50% · IPCA: 4,26%</div>
     </div>
   </div>
-</div>
 
-<!-- ══════════════ MAIN CONTENT ══════════════ -->
-<div class="main">
-
-  <!-- Update info -->
-  <div class="update-info">
-    <span class="update-info-icon">🔄</span>
-    <span>
-      <strong>Dados atualizados automaticamente</strong> conforme divulgações do IBGE.
-      Próxima divulgação do IPCA: <strong>10/04/2026</strong> (referente a março/2026).
-      Fontes: IBGE, Investidor10, Fecomércio PR, Udesc Esag, Fecomércio SC.
-    </span>
+  <div class="info-bar">
+    <span>🔄</span>
+    <span><strong>Dados atualizados automaticamente</strong> conforme divulgações do IBGE. Próxima divulgação do IPCA: <strong>10/04/2026</strong> (referente a março/2026). Fontes: IBGE, Investidor10, Fecomércio PR, Udesc Esag, Fecomércio SC.</span>
   </div>
 
   <!-- ── SEÇÃO 1: EVOLUÇÃO GERAL ── -->
@@ -545,17 +347,16 @@
     </div>
   </div>
 
-  <div class="filter-bar" id="filterPeriod">
-    <button class="filter-btn active" onclick="filterPeriod(this, 'all')">Todo o período</button>
-    <button class="filter-btn" onclick="filterPeriod(this, '2y')">Últimos 2 anos</button>
-    <button class="filter-btn" onclick="filterPeriod(this, '1y')">Último ano</button>
-    <button class="filter-btn" onclick="filterPeriod(this, '2025')">2025</button>
-    <button class="filter-btn" onclick="filterPeriod(this, '2024')">2024</button>
-    <button class="filter-btn" onclick="filterPeriod(this, '2022')">2022</button>
-    <button class="filter-btn" onclick="filterPeriod(this, '2021')">2021</button>
-  </div>
-
   <div class="card">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="updateChartRange('all')">Todo o período</button>
+      <button class="filter-btn" onclick="updateChartRange('2y')">Últimos 2 anos</button>
+      <button class="filter-btn" onclick="updateChartRange('1y')">Último ano</button>
+      <button class="filter-btn" onclick="updateChartRange('2025')">2025</button>
+      <button class="filter-btn" onclick="updateChartRange('2024')">2024</button>
+      <button class="filter-btn" onclick="updateChartRange('2022')">2022</button>
+      <button class="filter-btn" onclick="updateChartRange('2021')">2021</button>
+    </div>
     <div class="card-title">Variação Mensal do IPCA — Brasil</div>
     <div class="card-subtitle">Percentual de variação mês a mês. Barras negativas indicam deflação.</div>
     <div class="chart-container tall">
@@ -568,158 +369,7 @@
     </div>
   </div>
 
-  <!-- ── SEÇÃO 2: ACUMULADO ANUAL ── -->
-  <div class="section-header">
-    <div class="section-icon green">🗺️</div>
-    <div>
-      <div class="section-title">Comparativo Regional — IPCA Acumulado Anual</div>
-      <div class="section-subtitle">Brasil vs. Porto Alegre (RS) vs. Curitiba (PR) vs. Florianópolis (SC) · 2024–2026</div>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">IPCA Acumulado por Região (2024–2026)</div>
-      <div class="card-subtitle">Comparação entre Brasil, Porto Alegre (RS), Curitiba (PR) e Florianópolis (SC)</div>
-      <div class="chart-container tall">
-        <canvas id="chartRegional"></canvas>
-      </div>
-      <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--nacional)"></div> Brasil</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--rs)"></div> Porto Alegre (RS)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--pr)"></div> Curitiba (PR)</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--sc)"></div> Florianópolis (SC)</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">IPCA por Cidade — Fevereiro 2026</div>
-      <div class="card-subtitle">Variação mensal nas principais capitais</div>
-      <div class="chart-container tall">
-        <canvas id="chartCidades"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <!-- Insights regionais -->
-  <div class="insights-grid">
-    <div class="insight-box blue">
-      <div class="insight-title">🔵 Porto Alegre (RS) — Destaque de Alta</div>
-      <div class="insight-text">
-        Porto Alegre encerrou 2025 com IPCA de <strong>4,79%</strong>, acima da média nacional (4,26%) e sendo a 2ª capital com maior inflação no país. Em 2024, o índice foi de 5,20%. No 1º semestre de 2025, a alimentação no domicílio ficou <strong>5,01% mais cara</strong> em Porto Alegre — maior alta entre as capitais. Em jan/26: 0,33% mensal.
-      </div>
-    </div>
-    <div class="insight-box green">
-      <div class="insight-title">🟢 Curitiba (PR) — Comportamento Moderado</div>
-      <div class="insight-text">
-        Curitiba fechou 2025 com IPCA de <strong>3,84%</strong>, abaixo da média nacional e dentro do teto da meta (4,50%). Os alimentos básicos como feijão (-32,43%), arroz (-29,89%) e leite longa vida (-19,22%) puxaram o índice para baixo, compensando altas em café moído (+36,42%) e chocolate (+32,58%). Em fev/26: 0,41% mensal.
-      </div>
-    </div>
-    <div class="insight-box purple">
-      <div class="insight-title">🟣 Santa Catarina — Pressão em Alimentos</div>
-      <div class="insight-text">
-        Florianópolis encerrou 2025 com inflação de <strong>5,17%</strong> (ICV/Udesc Esag), acima da média nacional. A alimentação e bebidas subiu <strong>7,33%</strong> — quase 2,5x a média nacional (2,95%). Itens como batata inglesa (+68,43%), café (+48%) e tomate (+46,5%) foram os principais vilões. O peso da alimentação fora do domicílio é maior em SC (9,3% vs 6,06% nacional).
-      </div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- ── SEÇÃO 3: ALIMENTAÇÃO ── -->
-  <div class="section-header">
-    <div class="section-icon orange">🍽️</div>
-    <div>
-      <div class="section-title">IPCA do Setor Alimentício — Análise Detalhada</div>
-      <div class="section-subtitle">Variação do grupo Alimentação e Bebidas vs. IPCA Geral · 2019–2025</div>
-    </div>
-  </div>
-
-  <div class="card" style="margin-bottom:20px">
-    <div class="card-title">IPCA Geral vs. Alimentação e Bebidas — Variação Anual (%)</div>
-    <div class="card-subtitle">Comparação entre inflação geral, alimentação no domicílio e alimentação fora do domicílio</div>
-    <div class="chart-container tall">
-      <canvas id="chartAlimentacao"></canvas>
-    </div>
-    <div class="legend">
-      <div class="legend-item"><div class="legend-line" style="background:#374151"></div> IPCA Geral</div>
-      <div class="legend-item"><div class="legend-line" style="background:#f59e0b"></div> Alimentação e Bebidas</div>
-      <div class="legend-item"><div class="legend-line" style="background:#0e9f6e"></div> Alim. no Domicílio</div>
-      <div class="legend-item"><div class="legend-line" style="background:#e02424"></div> Alim. Fora do Domicílio</div>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Alimentos que Mais Subiram em 2025 — Brasil</div>
-      <div class="card-subtitle">Variação acumulada no ano (%) · Fonte: IBGE</div>
-      <div class="chart-container medium">
-        <canvas id="chartTopAltas"></canvas>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Alimentos que Mais Caíram em 2025 — Sul do Brasil</div>
-      <div class="card-subtitle">Deflação acumulada no ano (%) — RS, PR e SC · Fonte: Fecomércio PR, Udesc Esag</div>
-      <div class="filter-bar" id="filterRegiao" style="margin-bottom: 16px;">
-        <button class="filter-btn pr active" onclick="switchRegionQuedas(1)" style="border-color: var(--pr); color: var(--pr);">Curitiba (PR)</button>
-        <button class="filter-btn rs" onclick="switchRegionQuedas(0)" style="border-color: var(--rs); color: var(--rs);">Porto Alegre (RS)</button>
-        <button class="filter-btn sc" onclick="switchRegionQuedas(2)" style="border-color: var(--sc); color: var(--sc);">Florianópolis (SC)</button>
-      </div>
-      <div class="chart-container medium">
-        <canvas id="chartTopQuedas"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── SEÇÃO 4: ACUMULADO 12 MESES ── -->
-  <div class="section-header" style="margin-top:36px">
-    <div class="section-icon blue">📉</div>
-    <div>
-      <div class="section-title">IPCA Acumulado em 12 Meses — Trajetória Recente</div>
-      <div class="section-subtitle">Evolução do índice acumulado nos últimos 12 meses · Mar/2025 a Fev/2026</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Trajetória do IPCA Acumulado (12 meses)</div>
-    <div class="card-subtitle">Queda consistente desde o pico de 5,53% em abril/2025 até 3,81% em fevereiro/2026</div>
-    <div class="chart-container medium">
-      <canvas id="chartAcumulado12m"></canvas>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- ── SEÇÃO 5: GRUPOS DE DESPESA ── -->
-  <div class="section-header">
-    <div class="section-icon purple">🧮</div>
-    <div>
-      <div class="section-title">IPCA por Grupos de Despesa — 2025</div>
-      <div class="section-subtitle">Variação anual de cada grupo de despesa no IPCA · Fonte: IBGE</div>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Variação por Grupo de Despesa — 2025</div>
-      <div class="card-subtitle">Comparação com a meta de inflação (3,0%)</div>
-      <div class="chart-container tall">
-        <canvas id="chartGrupos2025"></canvas>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Peso dos Grupos no IPCA</div>
-      <div class="card-subtitle">Participação percentual na composição do índice (POF 2017/18)</div>
-      <div class="chart-container tall">
-        <canvas id="chartPeso"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- ── SEÇÃO 6: ANÁLISE DE IMPACTO ── -->
+  <!-- ── SEÇÃO 2: ANÁLISE DE IMPACTO ── -->
   <div class="section-header">
     <div class="section-icon orange">💼</div>
     <div>
@@ -851,9 +501,6 @@
               </div>
             </div>
           </div>
-          <div style="margin-top:16px; padding:12px 16px; background:#fffbeb; border-radius:10px; font-size:0.78rem; color:#92400e; border:1px solid #fde68a;">
-            <strong>⚠️ Atenção:</strong> Entre 2020 e 2025, o setor de alimentação fora do lar segurou reajustes por muito tempo. O acumulado de 44,05% ainda está abaixo da inflação de alimentos e bebidas (54,20%), indicando que há pressão reprimida para reajustes futuros.
-          </div>
         </div>
       </div>
     </div>
@@ -862,223 +509,202 @@
     <div id="tab-precos" class="tab-content">
       <div class="grid-2">
         <div>
-          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">
-            💰 Fatores de Pressão nos Preços
-          </h3>
-          <div class="insights-grid" style="grid-template-columns: 1fr; gap:12px; margin-top:0">
-            <div class="insight-box red">
-              <div class="insight-title">🔴 Pressão de Alta — Insumos Críticos</div>
-              <div class="insight-text">
-                <strong>Café moído (+35,65%)</strong>, chocolate (+32,58%), manga (+21,75%) e cafezinho (+15,5%) foram os maiores vilões em 2025. Para 2026, o café segue pressionado pelos preços internacionais. A <strong>alimentação fora do domicílio acumulou 6,97%</strong> em 2025 — quase o dobro da meta de inflação.
-              </div>
-            </div>
-            <div class="insight-box green">
-              <div class="insight-title">🟢 Alívio — Commodities Básicas</div>
-              <div class="insight-text">
-                Arroz (-26,56%), feijão (-23,86%), leite longa vida (-12,87%) e azeite de oliva (-19,32%) trouxeram alívio significativo ao custo de produção em 2025. Em Curitiba, cereais e leguminosas caíram 27,02%. Este cenário favorece a revisão de contratos de fornecimento de insumos básicos.
-              </div>
-            </div>
-            <div class="insight-box orange">
-              <div class="insight-title">🟡 Atenção — Sazonalidade e Câmbio</div>
-              <div class="insight-text">
-                A desvalorização do Real em 2024 foi determinante para o pico das carnes (+23,88% em 4 meses). O câmbio e as condições climáticas (afetando olerícolas) são os principais fatores de risco para precificação no Sul do Brasil em 2026.
-              </div>
-            </div>
-          </div>
+          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">💰 Estratégia de Precificação</h3>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:10px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;">
+              <span><strong>Alimentos Básicos (Feijão, Arroz)</strong></span>
+              <span style="color:var(--secondary);">-30% em 2025</span>
+            </li>
+            <li style="padding:10px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;">
+              <span><strong>Café Moído</strong></span>
+              <span style="color:var(--danger);">+35,65%</span>
+            </li>
+            <li style="padding:10px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;">
+              <span><strong>Carnes Bovinas</strong></span>
+              <span style="color:var(--danger);">+23,88%</span>
+            </li>
+            <li style="padding:10px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;">
+              <span><strong>Alim. Fora do Domicílio</strong></span>
+              <span style="color:var(--danger);">+6,97%</span>
+            </li>
+          </ul>
         </div>
         <div>
-          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">
-            📌 Referências para Precificação
-          </h3>
-          <table class="analysis-table">
-            <thead>
-              <tr>
-                <th>Índice / Referência</th>
-                <th>2024</th>
-                <th>2025</th>
-                <th>Tendência</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>IPCA Geral — Brasil</td>
-                <td>4,83%</td>
-                <td>4,26%</td>
-                <td><span class="tag tag-down">↓ Queda</span></td>
-              </tr>
-              <tr>
-                <td>IPCA Alim. e Bebidas</td>
-                <td>7,69%</td>
-                <td>2,95%</td>
-                <td><span class="tag tag-down">↓ Forte queda</span></td>
-              </tr>
-              <tr>
-                <td>Alim. no Domicílio</td>
-                <td>8,23%</td>
-                <td>1,43%</td>
-                <td><span class="tag tag-down">↓ Deflação parcial</span></td>
-              </tr>
-              <tr>
-                <td>Alim. Fora do Domicílio</td>
-                <td>6,29%</td>
-                <td>6,97%</td>
-                <td><span class="tag tag-up">↑ Alta</span></td>
-              </tr>
-              <tr>
-                <td>IPCA Porto Alegre (RS)</td>
-                <td>5,20%</td>
-                <td>4,79%</td>
-                <td><span class="tag tag-down">↓ Queda</span></td>
-              </tr>
-              <tr>
-                <td>IPCA Curitiba (PR)</td>
-                <td>5,04%</td>
-                <td>3,84%</td>
-                <td><span class="tag tag-down">↓ Queda</span></td>
-              </tr>
-              <tr>
-                <td>Taxa Selic (referência)</td>
-                <td>12,25%</td>
-                <td>13,25%</td>
-                <td><span class="tag tag-up">↑ Alta</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">📈 Recomendações</h3>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:10px; margin-bottom:10px; background:rgba(14,159,110,0.08); border-left:4px solid var(--secondary); border-radius:4px;">
+              <strong>Aproveitar Deflação:</strong> Produtos com queda de preço oferecem margem para promoções
+            </li>
+            <li style="padding:10px; margin-bottom:10px; background:rgba(224,36,36,0.08); border-left:4px solid var(--danger); border-radius:4px;">
+              <strong>Proteger Margens:</strong> Café e carnes exigem reajuste cuidadoso
+            </li>
+            <li style="padding:10px; margin-bottom:10px; background:rgba(227,160,8,0.08); border-left:4px solid var(--warning); border-radius:4px;">
+              <strong>Monitorar Serviços:</strong> Alimentação fora do domicílio pressiona custos
+            </li>
+          </ul>
         </div>
       </div>
     </div>
 
     <!-- Tab: Estratégias -->
     <div id="tab-estrategias" class="tab-content">
-      <div class="grid-3">
-        <div class="insight-box blue">
-          <div class="insight-title">📄 Contratos de Fornecimento</div>
-          <div class="insight-text">
-            Utilize o <strong>IPCA Alimentação e Bebidas</strong> (2,95% em 2025) como índice de reajuste em contratos de fornecimento de insumos. Para produtos específicos como café e chocolate, negocie cláusulas de revisão semestral atreladas ao preço de commodity. Contratos com arroz, feijão e leite podem ser negociados com deflação como base.
-          </div>
+      <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">🎯 Estratégias por Região</h3>
+      <div class="grid-2">
+        <div style="padding:16px; background:rgba(26,86,219,0.05); border-radius:8px; border-left:4px solid var(--rs);">
+          <h4 style="color:var(--rs); margin-bottom:8px;">🔵 Porto Alegre (RS)</h4>
+          <p style="font-size:0.9rem; line-height:1.5;">Maior inflação do Sul (4,79%). Foco em alimentos básicos com deflação para compensar pressão em carnes e café.</p>
         </div>
-        <div class="insight-box green">
-          <div class="insight-title">🛒 Gestão de Estoque</div>
-          <div class="insight-text">
-            Com a queda de preços em alimentos básicos (arroz, feijão, leite), é estratégico <strong>aumentar o estoque de segurança</strong> desses itens. Para café e chocolates, considere contratos de fornecimento de médio prazo para travar preços antes de novas altas. Monitorar o câmbio Real/Dólar é essencial para antecipar movimentos de preço.
-          </div>
+        <div style="padding:16px; background:rgba(14,159,110,0.05); border-radius:8px; border-left:4px solid var(--pr);">
+          <h4 style="color:var(--pr); margin-bottom:8px;">🟢 Curitiba (PR)</h4>
+          <p style="font-size:0.9rem; line-height:1.5;">Inflação controlada (3,84%). Aproveitar queda em feijão (-32%) e arroz (-30%) para competitividade.</p>
         </div>
-        <div class="insight-box orange">
-          <div class="insight-title">💵 Política de Preços ao Cliente</div>
-          <div class="insight-text">
-            O setor de alimentação fora do lar acumulou <strong>44,05% de alta entre 2020–2025</strong>, ainda abaixo dos 54,20% da inflação de alimentos. Há espaço para reajustes graduais sem perda de competitividade. No RS, a pressão é maior (Porto Alegre com 4,79% em 2025). No PR, o cenário é mais favorável (Curitiba com 3,84%).
-          </div>
-        </div>
-        <div class="insight-box red">
-          <div class="insight-title">⚠️ Riscos a Monitorar</div>
-          <div class="insight-text">
-            <strong>Câmbio:</strong> Desvalorização do Real pressiona carnes e commodities exportadas. <strong>Clima:</strong> Eventos climáticos no Sul afetam olerícolas (tomate, cenoura, batata). <strong>Energia elétrica:</strong> Subiu 12,31% em 2025 e impacta toda a cadeia produtiva. <strong>Café:</strong> Preços internacionais ainda elevados podem pressionar 2026.
-          </div>
-        </div>
-        <div class="insight-box purple">
-          <div class="insight-title">🤝 Negociação com Fornecedores</div>
-          <div class="insight-text">
-            Com o IPCA de alimentação em queda (2,95% em 2025 vs 7,69% em 2024), <strong>o poder de negociação do comprador aumentou</strong>. Utilize dados regionais (Curitiba 3,84%, Porto Alegre 4,79%) para embasar negociações locais. Exija justificativas baseadas em índices oficiais para reajustes acima do IPCA alimentação.
-          </div>
-        </div>
-        <div class="insight-box green">
-          <div class="insight-title">📊 Benchmarking de Preços</div>
-          <div class="insight-text">
-            Monitore mensalmente o IPCA por subgrupo de alimentos no IBGE. Crie uma planilha comparando seus custos reais com os índices oficiais. Para o Sul, acompanhe especialmente os dados de <strong>Porto Alegre e Curitiba</strong>, que são as cidades com medição própria do IBGE na região.
-          </div>
+        <div style="padding:16px; background:rgba(126,58,242,0.05); border-radius:8px; border-left:4px solid var(--sc);">
+          <h4 style="color:var(--sc); margin-bottom:8px;">🟣 Florianópolis (SC)</h4>
+          <p style="font-size:0.9rem; line-height:1.5;">Pressão em alimentos (7,33%). Batata, café e tomate com altas significativas exigem reajuste.</p>
         </div>
       </div>
     </div>
 
     <!-- Tab: Perspectivas 2026 -->
     <div id="tab-perspectivas" class="tab-content">
-      <div class="grid-2">
-        <div>
-          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">
-            🔮 Perspectivas para 2026
-          </h3>
-          <div class="insights-grid" style="grid-template-columns: 1fr; gap:12px; margin-top:0">
-            <div class="insight-box blue">
-              <div class="insight-title">📉 IPCA Acumulado 12m em Queda</div>
-              <div class="insight-text">
-                O IPCA acumulado em 12 meses recuou de 5,53% (abr/25) para <strong>3,81% em fev/26</strong> — abaixo do teto da meta (4,5%) pela primeira vez em quase 2 anos. Fevereiro/26 registrou 0,70%, puxado por educação. Alimentação e bebidas ficou em apenas 0,26%.
-              </div>
-            </div>
-            <div class="insight-box orange">
-              <div class="insight-title">⚠️ Pressões Residuais em 2026</div>
-              <div class="insight-text">
-                Açaí (+25,29% em fev/26), feijão-carioca (+11,73%) e batata-doce (+25,5% nos últimos 12m) são os novos focos de pressão. A Selic em 15% (mar/26) tende a conter a demanda, mas tem pouco efeito sobre preços de alimentos in natura, que dependem de oferta e câmbio.
-              </div>
-            </div>
-            <div class="insight-box green">
-              <div class="insight-title">✅ Cenário Favorável para Negociações</div>
-              <div class="insight-text">
-                Com inflação de alimentos controlada, 2026 apresenta <strong>janela favorável para revisão de contratos</strong>. A expectativa do mercado (Boletim Focus) é de inflação próxima ao centro da meta. Para o setor alimentício do Sul, o momento é propício para renegociar contratos de longo prazo com fornecedores.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">
-            📅 Calendário de Divulgações IPCA — 2026
-          </h3>
-          <table class="analysis-table">
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Referência</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>10/02/2026</td>
-                <td>Janeiro/2026</td>
-                <td><span class="tag tag-down">✓ Divulgado: 0,33%</span></td>
-              </tr>
-              <tr>
-                <td>12/03/2026</td>
-                <td>Fevereiro/2026</td>
-                <td><span class="tag tag-down">✓ Divulgado: 0,70%</span></td>
-              </tr>
-              <tr>
-                <td>10/04/2026</td>
-                <td>Março/2026</td>
-                <td><span class="tag tag-neutral">⏳ Próxima</span></td>
-              </tr>
-              <tr>
-                <td>12/05/2026</td>
-                <td>Abril/2026</td>
-                <td><span class="tag tag-neutral">Aguardando</span></td>
-              </tr>
-              <tr>
-                <td>12/06/2026</td>
-                <td>Maio/2026</td>
-                <td><span class="tag tag-neutral">Aguardando</span></td>
-              </tr>
-              <tr>
-                <td>10/07/2026</td>
-                <td>Junho/2026</td>
-                <td><span class="tag tag-neutral">Aguardando</span></td>
-              </tr>
-              <tr>
-                <td>11/08/2026</td>
-                <td>Julho/2026</td>
-                <td><span class="tag tag-neutral">Aguardando</span></td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="margin-top:14px; padding:12px 16px; background:#eff6ff; border-radius:10px; font-size:0.78rem; color:#1e429f; border:1px solid #bfdbfe;">
-            <strong>💡 Dica:</strong> Acompanhe as divulgações mensais do IBGE para atualizar suas análises de custo e precificação. O IPCA-15 (divulgado no dia 25 de cada mês) serve como prévia do IPCA oficial.
-          </div>
-        </div>
+      <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:14px; color:var(--neutral)">🔮 Perspectivas para 2026</h3>
+      <div style="padding:16px; background:var(--primary-light); border-radius:8px; border-left:4px solid var(--primary);">
+        <p style="font-size:0.9rem; line-height:1.6; margin-bottom:12px;">
+          <strong>Inflação em Trajetória de Queda:</strong> O IPCA acumulado em 12 meses caiu de 5,53% (abr/25) para 3,81% (fev/26), sinalizando desaceleração.
+        </p>
+        <p style="font-size:0.9rem; line-height:1.6; margin-bottom:12px;">
+          <strong>Alimentos Básicos Continuam Deflacionários:</strong> Expectativa de manutenção de queda em arroz e feijão até meados de 2026.
+        </p>
+        <p style="font-size:0.9rem; line-height:1.6;">
+          <strong>Atenção a Commodities:</strong> Café e carnes podem sofrer pressão se houver variação cambial ou problemas climáticos.
+        </p>
       </div>
     </div>
   </div>
 
-</div><!-- /main -->
+  <!-- ── GRÁFICOS DE ALIMENTOS (MOVIDOS) ── -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title" id="titleTopAltas">Alimentos que Mais Subiram em 2025 — Brasil</div>
+      <div class="card-subtitle">Variação acumulada no ano (%) · Fonte: IBGE</div>
+      <div class="chart-container medium">
+        <canvas id="chartTopAltas"></canvas>
+      </div>
+    </div>
 
-<!-- ══════════════ FOOTER ══════════════ -->
+    <div class="card">
+      <div class="card-title" id="titleTopQuedas">Alimentos que Mais Caíram em 2025 — Sul do Brasil</div>
+      <div class="card-subtitle">Deflação acumulada no ano (%) — RS, PR e SC · Fonte: Fecomércio PR, Udesc Esag</div>
+      <div class="filter-bar" id="filterRegiao" style="margin-bottom: 16px;">
+        <button class="filter-btn pr active" onclick="switchRegionQuedas(0)" style="border-color: var(--pr); color: var(--pr);">Curitiba (PR)</button>
+        <button class="filter-btn rs" onclick="switchRegionQuedas(1)" style="border-color: var(--rs); color: var(--rs);">Porto Alegre (RS)</button>
+        <button class="filter-btn sc" onclick="switchRegionQuedas(2)" style="border-color: var(--sc); color: var(--sc);">Florianópolis (SC)</button>
+      </div>
+      <div class="chart-container medium">
+        <canvas id="chartTopQuedas"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SEÇÃO 3: ACUMULADO ANUAL ── -->
+  <div class="section-header">
+    <div class="section-icon green">🗺️</div>
+    <div>
+      <div class="section-title">Comparativo Regional — IPCA Acumulado Anual</div>
+      <div class="section-subtitle">Brasil vs. Porto Alegre (RS) vs. Curitiba (PR) vs. Florianópolis (SC) · 2024–2026</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">IPCA Acumulado por Região (2024–2026)</div>
+      <div class="card-subtitle">Comparação entre Brasil, Porto Alegre (RS), Curitiba (PR) e Florianópolis (SC)</div>
+      <div class="chart-container tall">
+        <canvas id="chartRegional"></canvas>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--nacional)"></div> Brasil</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--rs)"></div> Porto Alegre (RS)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--pr)"></div> Curitiba (PR)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--sc)"></div> Florianópolis (SC)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" id="titleCidades">IPCA por Cidade — Fevereiro 2026</div>
+      <div class="card-subtitle">Variação mensal nas principais capitais</div>
+      <div class="chart-container tall">
+        <canvas id="chartCidades"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insights regionais -->
+  <div class="insights-grid">
+    <div class="insight-box blue">
+      <div class="insight-title">🔵 Porto Alegre (RS) — Destaque de Alta</div>
+      <div class="insight-text">
+        Porto Alegre encerrou 2025 com IPCA de <strong>4,79%</strong>, acima da média nacional (4,26%) e sendo a 2ª capital com maior inflação no país. Em 2024, o índice foi de 5,20%. No 1º semestre de 2025, a alimentação no domicílio ficou <strong>5,01% mais cara</strong> em Porto Alegre — maior alta entre as capitais. Em jan/26: 0,33% mensal.
+      </div>
+    </div>
+    <div class="insight-box green">
+      <div class="insight-title">🟢 Curitiba (PR) — Comportamento Moderado</div>
+      <div class="insight-text">
+        Curitiba fechou 2025 com IPCA de <strong>3,84%</strong>, abaixo da média nacional e dentro do teto da meta (4,50%). Os alimentos básicos como feijão (-32,43%), arroz (-29,89%) e leite longa vida (-19,22%) puxaram o índice para baixo, compensando altas em café moído (+36,42%) e chocolate (+32,58%). Em fev/26: 0,41% mensal.
+      </div>
+    </div>
+    <div class="insight-box purple">
+      <div class="insight-title">🟣 Santa Catarina — Pressão em Alimentos</div>
+      <div class="insight-text">
+        Florianópolis encerrou 2025 com inflação de <strong>5,17%</strong> (ICV/Udesc Esag), acima da média nacional. A alimentação e bebidas subiu <strong>7,33%</strong> — quase 2,5x a média nacional (2,95%). Itens como batata inglesa (+68,43%), café (+48%) e tomate (+46,5%) foram os principais vilões. O peso da alimentação fora do domicílio é maior em SC (9,3% vs 6,06% nacional).
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── SEÇÃO 4: ALIMENTAÇÃO DETALHADA ── -->
+  <div class="section-header">
+    <div class="section-icon orange">🍽️</div>
+    <div>
+      <div class="section-title">IPCA do Setor Alimentício — Análise Detalhada</div>
+      <div class="section-subtitle">Variação do grupo Alimentação e Bebidas vs. IPCA Geral · 2019–2025</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <div class="card-title">IPCA Geral vs. Alimentação e Bebidas — Variação Anual (%)</div>
+    <div class="card-subtitle">Comparação entre inflação geral, alimentação no domicílio e alimentação fora do domicílio</div>
+    <div class="chart-container tall">
+      <canvas id="chartAlimentacao"></canvas>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-line" style="background:#374151"></div> IPCA Geral</div>
+      <div class="legend-item"><div class="legend-line" style="background:#f59e0b"></div> Alimentação e Bebidas</div>
+      <div class="legend-item"><div class="legend-line" style="background:#0e9f6e"></div> Alim. no Domicílio</div>
+      <div class="legend-item"><div class="legend-line" style="background:#e02424"></div> Alim. Fora do Domicílio</div>
+    </div>
+  </div>
+
+  <!-- ── SEÇÃO 5: ACUMULADO 12 MESES ── -->
+  <div class="section-header" style="margin-top:36px">
+    <div class="section-icon blue">📉</div>
+    <div>
+      <div class="section-title">IPCA Acumulado em 12 Meses — Trajetória Recente</div>
+      <div class="section-subtitle">Evolução do índice acumulado nos últimos 12 meses · Mar/2025 a Fev/2026</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Trajetória do IPCA Acumulado (12 meses)</div>
+    <div class="card-subtitle">Queda consistente desde o pico de 5,53% em abril/2025 até 3,81% em fevereiro/2026</div>
+    <div class="chart-container tall">
+      <canvas id="chartAcumulado12m"></canvas>
+    </div>
+  </div>
+
+</main>
+
 <footer>
   <div style="max-width:900px; margin:0 auto">
     <div style="font-size:1.1rem; margin-bottom:8px">📊 Dashboard IPCA — Setor Alimentício | Sul do Brasil</div>
@@ -1116,111 +742,100 @@ const COLORS = {
   rs: '#1a56db',
   pr: '#0e9f6e',
   sc: '#7e3af2',
-  nacional: '#e02424',
-  alimentacao: '#f59e0b'
+  nacional: '#e02424'
 };
 
-function rgba(hex, alpha) {
-  const r = parseInt(hex.slice(1,3),16);
-  const g = parseInt(hex.slice(3,5),16);
-  const b = parseInt(hex.slice(5,7),16);
-  return `rgba(${r},${g},${b},${alpha})`;
+const rgba = (hex, alpha) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+function openTab(btn, tabId) {
+  const container = btn.closest('.card');
+  container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+// Automação de títulos mensais
+function updateMonthlyTitles() {
+  const lastMonth = ipcaData.ipcaGeral.labels[ipcaData.ipcaGeral.labels.length - 1];
+  document.getElementById('titleCidades').innerText = `IPCA por Cidade — ${lastMonth}`;
 }
 
 // ══════════════════════════════════════════
-// GRÁFICO 1 — VARIAÇÃO MENSAL
+// GRÁFICO 1 — VARIAÇÃO MENSAL (INTERATIVO)
 // ══════════════════════════════════════════
-let chartMensalInstance;
-function buildChartMensal(labels, values) {
-  const ctx = document.getElementById('chartMensal').getContext('2d');
-  if (chartMensalInstance) chartMensalInstance.destroy();
-  chartMensalInstance = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Variação Mensal (%)',
-        data: values,
-        backgroundColor: values.map(v => v >= 0 ? rgba(COLORS.primary, 0.75) : rgba(COLORS.danger, 0.75)),
-        borderColor: values.map(v => v >= 0 ? COLORS.primary : COLORS.danger),
-        borderWidth: 1,
-        borderRadius: 3,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => ` ${ctx.parsed.y.toFixed(2)}%`
-          }
-        },
-        annotation: {
-          annotations: {
-            metaLine: {
-              type: 'line',
-              yMin: 0.25,
-              yMax: 0.25,
-              borderColor: rgba(COLORS.warning, 0.6),
-              borderWidth: 1.5,
-              borderDash: [5,4],
-              label: {
-                content: 'Meta mensal aprox.',
-                display: false
-              }
-            }
-          }
-        }
+const ctxMensal = document.getElementById('chartMensal').getContext('2d');
+let chartMensal = new Chart(ctxMensal, {
+  type: 'bar',
+  data: {
+    labels: ipcaData.ipcaGeral.labels,
+    datasets: [{
+      data: ipcaData.ipcaGeral.values,
+      backgroundColor: ipcaData.ipcaGeral.values.map(v => v >= 0 ? COLORS.primary : COLORS.danger),
+      borderRadius: 4,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: { label: ctx => ` Variação: ${ctx.parsed.y.toFixed(2)}%` }
       },
-      scales: {
-        x: {
-          grid: { display: false },
-          ticks: {
-            maxRotation: 45,
-            font: { size: 10 },
-            maxTicksLimit: 24
-          }
-        },
-        y: {
-          grid: { color: rgba('#374151', 0.08) },
-          ticks: {
-            callback: v => v.toFixed(1) + '%'
+      annotation: {
+        annotations: {
+          meta: {
+            type: 'line',
+            yMin: 0.25, yMax: 0.25,
+            borderColor: rgba(COLORS.warning, 0.8),
+            borderWidth: 2,
+            borderDash: [6, 4],
+            label: { content: 'Meta Mensal (0.25%)', display: true, position: 'end' }
           }
         }
       }
+    },
+    scales: {
+      y: {
+        grid: { color: rgba('#374151', 0.06) },
+        ticks: { callback: v => v + '%' }
+      },
+      x: { grid: { display: false }, ticks: { font: { size: 10 } } }
     }
+  }
+});
+
+function updateChartRange(range) {
+  let labels = [...ipcaData.ipcaGeral.labels];
+  let values = [...ipcaData.ipcaGeral.values];
+  
+  if (range === '2y') { labels = labels.slice(-24); values = values.slice(-24); }
+  else if (range === '1y') { labels = labels.slice(-12); values = values.slice(-12); }
+  else if (range.length === 4) {
+    const indices = labels.map((l, i) => l.includes(range.slice(-2)) ? i : -1).filter(i => i !== -1);
+    labels = labels.slice(indices[0], indices[indices.length-1] + 1);
+    values = values.slice(indices[0], indices[indices.length-1] + 1);
+  }
+
+  chartMensal.data.labels = labels;
+  chartMensal.data.datasets[0].data = values;
+  chartMensal.data.datasets[0].backgroundColor = values.map(v => v >= 0 ? COLORS.primary : COLORS.danger);
+  chartMensal.update();
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick').includes(range));
   });
 }
 
-// Inicializar com todos os dados
-buildChartMensal(ipcaData.ipcaGeral.labels, ipcaData.ipcaGeral.values);
-
-// Filtro de período
-function filterPeriod(btn, period) {
-  document.querySelectorAll('#filterPeriod .filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const all = ipcaData.ipcaGeral;
-  let labels, values;
-  const n = all.labels.length;
-  if (period === 'all') {
-    labels = all.labels; values = all.values;
-  } else if (period === '2y') {
-    labels = all.labels.slice(-24); values = all.values.slice(-24);
-  } else if (period === '1y') {
-    labels = all.labels.slice(-12); values = all.values.slice(-12);
-  } else {
-    const yr = period;
-    const idx = all.labels.reduce((acc, l, i) => { if(l.includes('/'+yr.slice(2))) acc.push(i); return acc; }, []);
-    labels = idx.map(i => all.labels[i]);
-    values = idx.map(i => all.values[i]);
-  }
-  buildChartMensal(labels, values);
-}
-
 // ══════════════════════════════════════════
-// GRÁFICO 2 — COMPARATIVO REGIONAL
+// GRÁFICO 2 — REGIONAL (2024-2026)
 // ══════════════════════════════════════════
 const ctxRegional = document.getElementById('chartRegional').getContext('2d');
 new Chart(ctxRegional, {
@@ -1228,111 +843,37 @@ new Chart(ctxRegional, {
   data: {
     labels: ipcaData.ipcaAnual.anos,
     datasets: [
-      {
-        label: 'Brasil',
-        data: ipcaData.ipcaAnual.brasil,
-        borderColor: COLORS.nacional,
-        backgroundColor: rgba(COLORS.nacional, 0.08),
-        borderWidth: 2.5,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        tension: 0.3,
-        fill: false
-      },
-      {
-        label: 'Porto Alegre (RS)',
-        data: ipcaData.ipcaAnual.portoAlegre,
-        borderColor: COLORS.rs,
-        backgroundColor: rgba(COLORS.rs, 0.08),
-        borderWidth: 2.5,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        tension: 0.3,
-        fill: false
-      },
-      {
-        label: 'Curitiba (PR)',
-        data: ipcaData.ipcaAnual.curitiba,
-        borderColor: COLORS.pr,
-        backgroundColor: rgba(COLORS.pr, 0.08),
-        borderWidth: 2.5,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        tension: 0.3,
-        fill: false
-      },
-      {
-        label: 'Florianópolis (SC)',
-        data: ipcaData.ipcaAnual.florianopolis,
-        borderColor: COLORS.sc,
-        backgroundColor: rgba(COLORS.sc, 0.08),
-        borderWidth: 2.5,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        tension: 0.3,
-        fill: false
-      }
+      { label: 'Brasil', data: ipcaData.ipcaAnual.brasil, borderColor: COLORS.nacional, backgroundColor: COLORS.nacional, tension: 0.3, borderWidth: 3 },
+      { label: 'Porto Alegre (RS)', data: ipcaData.ipcaAnual.portoAlegre, borderColor: COLORS.rs, backgroundColor: COLORS.rs, tension: 0.3, borderWidth: 3 },
+      { label: 'Curitiba (PR)', data: ipcaData.ipcaAnual.curitiba, borderColor: COLORS.pr, backgroundColor: COLORS.pr, tension: 0.3, borderWidth: 3 },
+      { label: 'Florianópolis (SC)', data: ipcaData.ipcaAnual.florianopolis, borderColor: COLORS.sc, backgroundColor: COLORS.sc, tension: 0.3, borderWidth: 3, borderDash: [5, 2] }
     ]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        position: 'top',
-        labels: { boxWidth: 12, font: { size: 11 } }
-      },
-      tooltip: {
-        callbacks: {
-          label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%`
-        }
-      },
-      annotation: {
-        annotations: {
-          meta: {
-            type: 'line',
-            yMin: 3.0,
-            yMax: 3.0,
-            borderColor: rgba(COLORS.warning, 0.5),
-            borderWidth: 1.5,
-            borderDash: [5,4]
-          },
-          teto: {
-            type: 'line',
-            yMin: 4.5,
-            yMax: 4.5,
-            borderColor: rgba(COLORS.danger, 0.4),
-            borderWidth: 1.5,
-            borderDash: [5,4]
-          }
-        }
-      }
+      legend: { display: false },
+      tooltip: { mode: 'index', intersect: false }
     },
     scales: {
-      x: { grid: { display: false } },
-      y: {
-        grid: { color: rgba('#374151', 0.08) },
-        ticks: { callback: v => v + '%' }
-      }
+      y: { ticks: { callback: v => v + '%' }, grid: { color: rgba('#374151', 0.06) } },
+      x: { grid: { display: false } }
     }
   }
 });
 
 // ══════════════════════════════════════════
-// GRÁFICO 3 — IPCA POR CIDADE FEV/26
+// GRÁFICO 3 — CIDADES (FEV 2026)
 // ══════════════════════════════════════════
 const ctxCidades = document.getElementById('chartCidades').getContext('2d');
-const cidadesColors = [COLORS.pr, COLORS.rs, '#374151', '#6b7280', '#9ca3af', COLORS.danger];
 new Chart(ctxCidades, {
   type: 'bar',
   data: {
     labels: ipcaData.ipcaCidadeFev2026.cidades,
     datasets: [{
-      label: 'IPCA Fev/2026 (%)',
       data: ipcaData.ipcaCidadeFev2026.valores,
-      backgroundColor: cidadesColors.map(c => rgba(c, 0.75)),
-      borderColor: cidadesColors,
-      borderWidth: 1.5,
+      backgroundColor: [COLORS.pr, COLORS.rs, COLORS.sc, COLORS.nacional],
       borderRadius: 6
     }]
   },
@@ -1340,24 +881,16 @@ new Chart(ctxCidades, {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)}%` }
-      }
-    },
+    plugins: { legend: { display: false } },
     scales: {
-      x: {
-        grid: { color: rgba('#374151', 0.08) },
-        ticks: { callback: v => v + '%' }
-      },
+      x: { ticks: { callback: v => v + '%' }, grid: { color: rgba('#374151', 0.06) } },
       y: { grid: { display: false } }
     }
   }
 });
 
 // ══════════════════════════════════════════
-// GRÁFICO 4 — ALIMENTAÇÃO vs GERAL
+// GRÁFICO 4 — ALIMENTAÇÃO VS GERAL
 // ══════════════════════════════════════════
 const ctxAlim = document.getElementById('chartAlimentacao').getContext('2d');
 new Chart(ctxAlim, {
@@ -1365,117 +898,42 @@ new Chart(ctxAlim, {
   data: {
     labels: ipcaData.comparacaoGeralAlimentacao.anos,
     datasets: [
-      {
-        label: 'IPCA Geral',
-        data: ipcaData.comparacaoGeralAlimentacao.ipcaGeral,
-        borderColor: COLORS.neutral,
-        backgroundColor: rgba(COLORS.neutral, 0.06),
-        borderWidth: 2.5,
-        pointRadius: 5,
-        pointHoverRadius: 7,
-        tension: 0.3,
-        fill: false
-      },
-      {
-        label: 'Alimentação e Bebidas',
-        data: ipcaData.comparacaoGeralAlimentacao.ipcaAlimentacao,
-        borderColor: COLORS.alimentacao,
-        backgroundColor: rgba(COLORS.alimentacao, 0.08),
-        borderWidth: 2.5,
-        pointRadius: 5,
-        pointHoverRadius: 7,
-        tension: 0.3,
-        fill: false
-      },
-      {
-        label: 'Alim. no Domicílio',
-        data: ipcaData.comparacaoGeralAlimentacao.ipcaAlimDomicilio,
-        borderColor: COLORS.secondary,
-        backgroundColor: rgba(COLORS.secondary, 0.08),
-        borderWidth: 2,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        tension: 0.3,
-        borderDash: [5,3],
-        fill: false
-      },
-      {
-        label: 'Alim. Fora do Domicílio',
-        data: ipcaData.comparacaoGeralAlimentacao.ipcaAlimForaDomicilio,
-        borderColor: COLORS.danger,
-        backgroundColor: rgba(COLORS.danger, 0.06),
-        borderWidth: 2,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        tension: 0.3,
-        borderDash: [3,3],
-        fill: false
-      }
+      { label: 'IPCA Geral', data: ipcaData.comparacaoGeralAlimentacao.ipcaGeral, borderColor: COLORS.neutral, tension: 0.3, pointRadius: 4 },
+      { label: 'Alimentação e Bebidas', data: ipcaData.comparacaoGeralAlimentacao.ipcaAlimentacao, borderColor: COLORS.warning, tension: 0.3, pointRadius: 4, borderWidth: 4 },
+      { label: 'Alim. no Domicílio', data: ipcaData.comparacaoGeralAlimentacao.ipcaAlimDomicilio, borderColor: COLORS.secondary, tension: 0.3, borderDash: [5, 5] },
+      { label: 'Alim. Fora do Domicílio', data: ipcaData.comparacaoGeralAlimentacao.ipcaAlimForaDomicilio, borderColor: COLORS.danger, tension: 0.3, borderDash: [2, 2] }
     ]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        position: 'top',
-        labels: { boxWidth: 14, font: { size: 11 } }
-      },
-      tooltip: {
-        callbacks: {
-          label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%`
-        }
-      },
+      legend: { display: false },
       annotation: {
         annotations: {
-          meta: {
-            type: 'line',
-            yMin: 3.0, yMax: 3.0,
-            borderColor: rgba(COLORS.warning, 0.5),
-            borderWidth: 1.5,
-            borderDash: [5,4],
-            label: {
-              content: 'Meta 3%',
-              display: true,
-              position: 'end',
-              font: { size: 10 },
-              color: COLORS.warning,
-              backgroundColor: 'transparent'
-            }
-          }
+          meta: { type: 'line', yMin: 3, yMax: 3, borderColor: rgba(COLORS.warning, 0.4), borderWidth: 2, borderDash: [10, 5] }
         }
       }
     },
     scales: {
-      x: { grid: { display: false } },
-      y: {
-        grid: { color: rgba('#374151', 0.08) },
-        ticks: { callback: v => v + '%' }
-      }
+      y: { ticks: { callback: v => v + '%' } }
     }
   }
 });
 
 // ══════════════════════════════════════════
-// GRÁFICO 5 — TOP ALTAS 2025
+// GRÁFICO 5 — TOP ALTAS (BRASIL 2025)
 // ══════════════════════════════════════════
-const topItens = ipcaData.topItensAlimentacao2025;
-const sortedIdx = topItens.variacoes
-  .map((v,i) => ({v, i}))
-  .sort((a,b) => b.v - a.v)
-  .slice(0, 8);
-
-const ctxTopAltas = document.getElementById('chartTopAltas').getContext('2d');
-new Chart(ctxTopAltas, {
+const ctxAltas = document.getElementById('chartTopAltas').getContext('2d');
+new Chart(ctxAltas, {
   type: 'bar',
   data: {
-    labels: sortedIdx.map(x => topItens.itens[x.i]),
+    labels: ipcaData.topItensAlimentacao2025.itens,
     datasets: [{
-      label: 'Variação 2025 (%)',
-      data: sortedIdx.map(x => x.v),
-      backgroundColor: sortedIdx.map(x => x.v >= 0 ? rgba(COLORS.danger, 0.75) : rgba(COLORS.secondary, 0.75)),
-      borderColor: sortedIdx.map(x => x.v >= 0 ? COLORS.danger : COLORS.secondary),
-      borderWidth: 1.5,
+      data: ipcaData.topItensAlimentacao2025.variacoes,
+      backgroundColor: rgba(COLORS.danger, 0.7),
+      borderColor: COLORS.danger,
+      borderWidth: 1,
       borderRadius: 4
     }]
   },
@@ -1483,294 +941,96 @@ new Chart(ctxTopAltas, {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)}%` }
-      }
-    },
+    plugins: { legend: { display: false } },
     scales: {
-      x: {
-        grid: { color: rgba('#374151', 0.08) },
-        ticks: { callback: v => v + '%', font: { size: 10 } }
-      },
-      y: {
-        grid: { display: false },
-        ticks: { font: { size: 10 } }
-      }
+      x: { ticks: { callback: v => v + '%' }, max: 50 }
     }
   }
 });
 
 // ══════════════════════════════════════════
-// GRÁFICO 6 — TOP QUEDAS SUL 2025 (RS, PR, SC)
+// GRÁFICO 6 — TOP QUEDAS (SUL 2025)
 // ══════════════════════════════════════════
-const quedas = ipcaData.quedaAlimentosCuritiba2025;
-let currentRegionIndex = 1; // Índice padrão: Curitiba (PR)
-let chartTopQuedasInstance;
-
-function buildChartTopQuedas(regionIndex) {
-  const ctxTopQuedas = document.getElementById('chartTopQuedas').getContext('2d');
-  if (chartTopQuedasInstance) chartTopQuedasInstance.destroy();
-  
-  const cores = [COLORS.rs, COLORS.pr, COLORS.sc];
-  const cor = cores[regionIndex];
-  
-  chartTopQuedasInstance = new Chart(ctxTopQuedas, {
-    type: 'bar',
-    data: {
-      labels: quedas.itens[regionIndex],
-      datasets: [{
-        label: `Variação 2025 — ${quedas.regioes[regionIndex]} (%)`,
-        data: quedas.variacoes[regionIndex],
-        backgroundColor: rgba(cor, 0.75),
-        borderColor: cor,
-        borderWidth: 1.5,
-        borderRadius: 4
-      }]
-    },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)}%` }
-        }
-      },
-      scales: {
-        x: {
-          grid: { color: rgba('#374151', 0.08) },
-          ticks: { callback: v => v + '%', font: { size: 10 } }
-        },
-        y: {
-          grid: { display: false },
-          ticks: { font: { size: 10 } }
-        }
-      }
+const ctxQuedas = document.getElementById('chartTopQuedas').getContext('2d');
+let chartTopQuedas = new Chart(ctxQuedas, {
+  type: 'bar',
+  data: {
+    labels: ipcaData.quedaAlimentosCuritiba2025.itens[0], // Default Curitiba
+    datasets: [{
+      data: ipcaData.quedaAlimentosCuritiba2025.variacoes[0],
+      backgroundColor: rgba(COLORS.pr, 0.7),
+      borderColor: COLORS.pr,
+      borderWidth: 1,
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { callback: v => v + '%' } }
     }
-  });
-}
+  }
+});
 
-// Inicializar com Curitiba (PR)
-buildChartTopQuedas(1);
+function switchRegionQuedas(regionIndex) {
+  const labels = ipcaData.quedaAlimentosCuritiba2025.itens[regionIndex];
+  const values = ipcaData.quedaAlimentosCuritiba2025.variacoes[regionIndex];
+  const colors = [COLORS.pr, COLORS.rs, COLORS.sc];
+  const color = colors[regionIndex];
+  
+  chartTopQuedas.data.labels = labels;
+  chartTopQuedas.data.datasets[0].data = values;
+  chartTopQuedas.data.datasets[0].backgroundColor = rgba(color, 0.7);
+  chartTopQuedas.data.datasets[0].borderColor = color;
+  chartTopQuedas.update();
 
-// Função para trocar entre regiões
-function switchRegionQuedas(index) {
-  currentRegionIndex = index;
-  buildChartTopQuedas(index);
-  // Atualizar botões de seleção
   document.querySelectorAll('#filterRegiao .filter-btn').forEach((btn, i) => {
-    btn.classList.toggle('active', i === index);
+    btn.classList.toggle('active', i === regionIndex);
   });
 }
 
 // ══════════════════════════════════════════
 // GRÁFICO 7 — ACUMULADO 12 MESES
 // ══════════════════════════════════════════
-const ctxAcum = document.getElementById('chartAcumulado12m').getContext('2d');
-new Chart(ctxAcum, {
+const ctx12m = document.getElementById('chartAcumulado12m').getContext('2d');
+new Chart(ctx12m, {
   type: 'line',
   data: {
     labels: ipcaData.ipcaAcumulado12m.labels,
-    datasets: [
-      {
-        label: 'IPCA Acumulado 12 meses (%)',
-        data: ipcaData.ipcaAcumulado12m.values,
-        borderColor: COLORS.primary,
-        backgroundColor: rgba(COLORS.primary, 0.1),
-        borderWidth: 2.5,
-        pointRadius: 5,
-        pointHoverRadius: 7,
-        tension: 0.3,
-        fill: true
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: { label: ctx => ` ${ctx.parsed.y.toFixed(2)}%` }
-      },
-      annotation: {
-        annotations: {
-          meta: {
-            type: 'line',
-            yMin: 3.0, yMax: 3.0,
-            borderColor: rgba(COLORS.warning, 0.6),
-            borderWidth: 1.5,
-            borderDash: [5,4],
-            label: {
-              content: 'Meta: 3%',
-              display: true,
-              position: 'start',
-              font: { size: 10 },
-              color: COLORS.warning,
-              backgroundColor: 'transparent'
-            }
-          },
-          teto: {
-            type: 'line',
-            yMin: 4.5, yMax: 4.5,
-            borderColor: rgba(COLORS.danger, 0.5),
-            borderWidth: 1.5,
-            borderDash: [5,4],
-            label: {
-              content: 'Teto: 4,5%',
-              display: true,
-              position: 'start',
-              font: { size: 10 },
-              color: COLORS.danger,
-              backgroundColor: 'transparent'
-            }
-          }
-        }
-      }
-    },
-    scales: {
-      x: { grid: { display: false } },
-      y: {
-        grid: { color: rgba('#374151', 0.08) },
-        ticks: { callback: v => v + '%' },
-        min: 3.0,
-        max: 6.0
-      }
-    }
-  }
-});
-
-// ══════════════════════════════════════════
-// GRÁFICO 8 — GRUPOS DE DESPESA 2025
-// ══════════════════════════════════════════
-const gruposLabels = ['Alim. e Bebidas','Habitação','Art. Residência','Vestuário','Transportes','Saúde','Desp. Pessoais','Educação','Comunicação','IPCA Geral'];
-const gruposValues = [2.95, 6.79, -0.28, 4.99, 3.07, 5.59, 5.87, 6.22, 0.77, 4.26];
-const gruposColors = gruposValues.map(v => {
-  if (v > 5) return rgba(COLORS.danger, 0.75);
-  if (v > 3) return rgba(COLORS.warning, 0.75);
-  if (v >= 0) return rgba(COLORS.primary, 0.75);
-  return rgba(COLORS.secondary, 0.75);
-});
-
-const ctxGrupos = document.getElementById('chartGrupos2025').getContext('2d');
-new Chart(ctxGrupos, {
-  type: 'bar',
-  data: {
-    labels: gruposLabels,
     datasets: [{
-      label: 'Variação 2025 (%)',
-      data: gruposValues,
-      backgroundColor: gruposColors,
-      borderColor: gruposColors.map(c => c.replace('0.75', '1')),
-      borderWidth: 1.5,
-      borderRadius: 4
-    }]
-  },
-  options: {
-    indexAxis: 'y',
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)}%` }
-      },
-      annotation: {
-        annotations: {
-          meta: {
-            type: 'line',
-            xMin: 3.0, xMax: 3.0,
-            borderColor: rgba(COLORS.warning, 0.6),
-            borderWidth: 1.5,
-            borderDash: [5,4]
-          }
-        }
-      }
-    },
-    scales: {
-      x: {
-        grid: { color: rgba('#374151', 0.08) },
-        ticks: { callback: v => v + '%', font: { size: 10 } }
-      },
-      y: {
-        grid: { display: false },
-        ticks: { font: { size: 10 } }
-      }
-    }
-  }
-});
-
-// ══════════════════════════════════════════
-// GRÁFICO 9 — PESO DOS GRUPOS NO IPCA
-// ══════════════════════════════════════════
-const ctxPeso = document.getElementById('chartPeso').getContext('2d');
-new Chart(ctxPeso, {
-  type: 'doughnut',
-  data: {
-    labels: [
-      'Alim. no Domicílio (15,36%)',
-      'Alim. Fora Domicílio (6,08%)',
-      'Habitação (14,74%)',
-      'Transportes (20,54%)',
-      'Saúde (13,43%)',
-      'Desp. Pessoais (10,19%)',
-      'Educação (6,00%)',
-      'Vestuário (4,58%)',
-      'Art. Residência (4,69%)',
-      'Comunicação (4,39%)'
-    ],
-    datasets: [{
-      data: [15.36, 6.08, 14.74, 20.54, 13.43, 10.19, 6.00, 4.58, 4.69, 4.39],
-      backgroundColor: [
-        rgba(COLORS.alimentacao, 0.85),
-        rgba(COLORS.alimentacao, 0.5),
-        rgba(COLORS.primary, 0.75),
-        rgba(COLORS.neutral, 0.75),
-        rgba(COLORS.danger, 0.65),
-        rgba(COLORS.purple, 0.65),
-        rgba(COLORS.secondary, 0.65),
-        '#f3f4f6',
-        '#e5e7eb',
-        '#d1d5db'
-      ],
-      borderColor: '#fff',
-      borderWidth: 2
+      label: 'IPCA Acumulado 12m',
+      data: ipcaData.ipcaAcumulado12m.values,
+      borderColor: COLORS.primary,
+      backgroundColor: rgba(COLORS.primary, 0.1),
+      fill: true,
+      tension: 0.4,
+      pointRadius: 6,
+      pointBackgroundColor: '#fff',
+      borderWidth: 4
     }]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        position: 'right',
-        labels: {
-          boxWidth: 12,
-          font: { size: 10 },
-          padding: 8
-        }
-      },
-      tooltip: {
-        callbacks: {
-          label: ctx => ` ${ctx.label}`
+      legend: { display: false },
+      annotation: {
+        annotations: {
+          teto: { type: 'line', yMin: 4.5, yMax: 4.5, borderColor: COLORS.danger, borderDash: [5, 5], label: { content: 'Teto Meta (4.5%)', display: true } },
+          centro: { type: 'line', yMin: 3, yMax: 3, borderColor: COLORS.warning, borderDash: [5, 5], label: { content: 'Centro Meta (3.0%)', display: true, position: 'start' } }
         }
       }
     },
-    cutout: '55%'
+    scales: { y: { ticks: { callback: v => v + '%' } } }
   }
 });
 
-// ══════════════════════════════════════════
-// TABS
-// ══════════════════════════════════════════
-function openTab(btn, tabId) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
-}
+// Inicialização
+updateMonthlyTitles();
 </script>
+
 </body>
 </html>
