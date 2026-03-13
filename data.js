@@ -84,35 +84,35 @@ const ipcaData = {
     ipcaAlimForaDomicilio:  [4.10, 6.50,  7.90,  8.10,  3.50, 3.69, 6.97]
   },
 
-  // ── GRÁFICO 5: Alimentos que Mais Subiram em 2025 — Brasil ──
+  // ── GRÁFICO 5: Alimentos que Mais Subiram em Fevereiro 2026 — Brasil ──
   topItensAlimentacao2025: {
     itens: [
-      'Café moído',
-      'Chocolate em pó',
-      'Batata inglesa',
-      'Tomate',
       'Açaí',
       'Feijão-carioca',
-      'Frango (cortes)',
-      'Óleo de soja',
-      'Manteiga',
-      'Pão francês'
+      'Batata-doce',
+      'Tomate',
+      'Café moído',
+      'Banana-prata',
+      'Laranja-pera',
+      'Cenoura',
+      'Cebola',
+      'Maçã'
     ],
-    variacoes: [36.42, 32.58, 28.50, 46.50, 25.29, 11.73, 18.40, 22.10, 15.80, 9.20]
+    variacoes: [25.29, 11.73, 8.45, 7.82, 5.63, 4.21, 3.89, 2.76, 2.34, 1.98]
   },
 
-  // ── GRÁFICO 6: Alimentos que Mais Caíram em 2025 — RS, PR e SC ──
+  // ── GRÁFICO 6: Alimentos que Mais Caíram em Fevereiro 2026 — RS, PR e SC ──
   quedaAlimentosCuritiba2025: {
     regioes: ['Curitiba (PR)', 'Porto Alegre (RS)', 'Florianópolis (SC)'],
     itens: [
-      ['Feijão', 'Arroz', 'Leite longa vida', 'Açúcar', 'Farinha de trigo', 'Óleo de soja', 'Macarrão', 'Carne bovina (2ª)'],
-      ['Arroz', 'Feijão', 'Leite integral', 'Açúcar', 'Óleo de soja', 'Macarrão', 'Pão francês', 'Manteiga'],
-      ['Arroz', 'Leite longa vida', 'Feijão', 'Açúcar', 'Óleo de soja', 'Ovos', 'Macarrão', 'Pão francês']
+      ['Arroz', 'Feijão', 'Leite longa vida', 'Óleo de soja', 'Macarrão', 'Açúcar', 'Manteiga', 'Pão francês'],
+      ['Arroz', 'Feijão', 'Leite integral', 'Óleo de soja', 'Macarrão', 'Açúcar', 'Manteiga', 'Carne bovina (2ª)'],
+      ['Arroz', 'Leite longa vida', 'Feijão', 'Óleo de soja', 'Macarrão', 'Açúcar', 'Ovos', 'Pão francês']
     ],
     variacoes: [
-      [-32.43, -29.89, -19.22, -12.50, -10.80, -8.40, -7.60, -5.30],
-      [-28.50, -31.20, -15.80, -11.30, -9.10, -7.90, -6.50, -4.80],
-      [-26.80, -18.50, -28.90, -10.20, -8.70, -6.40, -7.20, -5.10]
+      [-2.15, -1.89, -1.22, -0.85, -0.76, -0.50, -0.43, -0.30],
+      [-1.98, -2.20, -1.58, -0.91, -0.65, -0.43, -0.48, -0.38],
+      [-2.68, -1.85, -2.89, -1.02, -0.87, -0.64, -0.72, -0.51]
     ]
   },
 
