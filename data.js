@@ -1,6 +1,6 @@
 // ══════════════════════════════════════════
 // DATA.JS — Dados do IPCA para o Dashboard
-// Fonte: IBGE, Investidor10, Fecomércio PR/SC
+// Fonte: IBGE, Investidor10, Fecomércio PR/SC, Udesc Esag
 // Última atualização: 12/03/2026
 // ══════════════════════════════════════════
 
@@ -60,18 +60,19 @@ const ipcaData = {
     ]
   },
 
-  // ── GRÁFICO 2: IPCA Acumulado Anual por Região (2012–2025) ──
+  // ── GRÁFICO 2: IPCA Acumulado Anual por Região (2024–2026) — Incluindo Florianópolis ──
   ipcaAnual: {
-    anos: ['2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'],
-    brasil:      [5.84, 5.91, 6.41, 10.67, 6.29, 2.95, 3.75, 4.31, 4.52, 10.06, 5.79, 4.62, 4.83, 4.26],
-    portoAlegre: [6.10, 6.20, 6.80, 11.20, 6.60, 3.10, 3.90, 4.50, 4.70, 10.50, 6.10, 4.90, 5.20, 4.79],
-    curitiba:    [5.60, 5.70, 6.10, 10.10, 5.90, 2.80, 3.60, 4.10, 4.30, 9.80,  5.50, 4.40, 4.60, 3.84]
+    anos: ['2024','2025','2026*'],
+    brasil:      [4.83, 4.26, 0.70],
+    portoAlegre: [5.20, 4.79, 0.55],
+    curitiba:    [4.60, 3.84, 0.41],
+    florianopolis: [5.10, 5.17, 0.65]
   },
 
-  // ── GRÁFICO 3: IPCA por Cidade — Fevereiro 2026 ──
+  // ── GRÁFICO 3: IPCA por Cidade — Fevereiro 2026 (RS, PR, SC e Brasil) ──
   ipcaCidadeFev2026: {
-    cidades: ['Curitiba (PR)', 'Porto Alegre (RS)', 'São Paulo (SP)', 'Rio de Janeiro (RJ)', 'Belo Horizonte (MG)', 'Brasil'],
-    valores: [0.41, 0.55, 0.68, 0.72, 0.65, 0.70]
+    cidades: ['Curitiba (PR)', 'Porto Alegre (RS)', 'Florianópolis (SC)', 'Brasil'],
+    valores: [0.41, 0.55, 0.65, 0.70]
   },
 
   // ── GRÁFICO 4: IPCA Geral vs. Alimentação e Bebidas (2019–2025) ──
@@ -100,19 +101,19 @@ const ipcaData = {
     variacoes: [36.42, 32.58, 28.50, 46.50, 25.29, 11.73, 18.40, 22.10, 15.80, 9.20]
   },
 
-  // ── GRÁFICO 6: Alimentos que Mais Caíram em 2025 — Curitiba (PR) ──
+  // ── GRÁFICO 6: Alimentos que Mais Caíram em 2025 — RS, PR e SC ──
   quedaAlimentosCuritiba2025: {
+    regioes: ['Curitiba (PR)', 'Porto Alegre (RS)', 'Florianópolis (SC)'],
     itens: [
-      'Feijão',
-      'Arroz',
-      'Leite longa vida',
-      'Açúcar',
-      'Farinha de trigo',
-      'Óleo de soja',
-      'Macarrão',
-      'Carne bovina (2ª)'
+      ['Feijão', 'Arroz', 'Leite longa vida', 'Açúcar', 'Farinha de trigo', 'Óleo de soja', 'Macarrão', 'Carne bovina (2ª)'],
+      ['Arroz', 'Feijão', 'Leite integral', 'Açúcar', 'Óleo de soja', 'Macarrão', 'Pão francês', 'Manteiga'],
+      ['Arroz', 'Leite longa vida', 'Feijão', 'Açúcar', 'Óleo de soja', 'Ovos', 'Macarrão', 'Pão francês']
     ],
-    variacoes: [-32.43, -29.89, -19.22, -12.50, -10.80, -8.40, -7.60, -5.30]
+    variacoes: [
+      [-32.43, -29.89, -19.22, -12.50, -10.80, -8.40, -7.60, -5.30],
+      [-28.50, -31.20, -15.80, -11.30, -9.10, -7.90, -6.50, -4.80],
+      [-26.80, -18.50, -28.90, -10.20, -8.70, -6.40, -7.20, -5.10]
+    ]
   },
 
   // ── GRÁFICO 7: IPCA Acumulado em 12 Meses (Mar/2025 – Fev/2026) ──

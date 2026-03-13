@@ -573,13 +573,13 @@
     <div class="section-icon green">🗺️</div>
     <div>
       <div class="section-title">Comparativo Regional — IPCA Acumulado Anual</div>
-      <div class="section-subtitle">Brasil vs. Porto Alegre (RS) vs. Curitiba (PR) vs. Florianópolis (SC) · 2012–2025</div>
+      <div class="section-subtitle">Brasil vs. Porto Alegre (RS) vs. Curitiba (PR) vs. Florianópolis (SC) · 2024–2026</div>
     </div>
   </div>
 
   <div class="grid-2">
     <div class="card">
-      <div class="card-title">IPCA Acumulado por Região (2012–2025)</div>
+      <div class="card-title">IPCA Acumulado por Região (2024–2026)</div>
       <div class="card-subtitle">Comparação entre Brasil, Porto Alegre (RS), Curitiba (PR) e Florianópolis (SC)</div>
       <div class="chart-container tall">
         <canvas id="chartRegional"></canvas>
@@ -658,8 +658,13 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Alimentos que Mais Caíram em 2025 — Curitiba (PR)</div>
-      <div class="card-subtitle">Deflação acumulada no ano (%) · Fonte: Fecomércio PR</div>
+      <div class="card-title">Alimentos que Mais Caíram em 2025 — Sul do Brasil</div>
+      <div class="card-subtitle">Deflação acumulada no ano (%) — RS, PR e SC · Fonte: Fecomércio PR, Udesc Esag</div>
+      <div class="filter-bar" id="filterRegiao" style="margin-bottom: 16px;">
+        <button class="filter-btn pr active" onclick="switchRegionQuedas(1)" style="border-color: var(--pr); color: var(--pr);">Curitiba (PR)</button>
+        <button class="filter-btn rs" onclick="switchRegionQuedas(0)" style="border-color: var(--rs); color: var(--rs);">Porto Alegre (RS)</button>
+        <button class="filter-btn sc" onclick="switchRegionQuedas(2)" style="border-color: var(--sc); color: var(--sc);">Florianópolis (SC)</button>
+      </div>
       <div class="chart-container medium">
         <canvas id="chartTopQuedas"></canvas>
       </div>
@@ -1255,6 +1260,17 @@ new Chart(ctxRegional, {
         pointHoverRadius: 6,
         tension: 0.3,
         fill: false
+      },
+      {
+        label: 'Florianópolis (SC)',
+        data: ipcaData.ipcaAnual.florianopolis,
+        borderColor: COLORS.sc,
+        backgroundColor: rgba(COLORS.sc, 0.08),
+        borderWidth: 2.5,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        tension: 0.3,
+        fill: false
       }
     ]
   },
@@ -1487,45 +1503,68 @@ new Chart(ctxTopAltas, {
 });
 
 // ══════════════════════════════════════════
-// GRÁFICO 6 — TOP QUEDAS CURITIBA 2025
+// GRÁFICO 6 — TOP QUEDAS SUL 2025 (RS, PR, SC)
 // ══════════════════════════════════════════
 const quedas = ipcaData.quedaAlimentosCuritiba2025;
-const ctxTopQuedas = document.getElementById('chartTopQuedas').getContext('2d');
-new Chart(ctxTopQuedas, {
-  type: 'bar',
-  data: {
-    labels: quedas.itens,
-    datasets: [{
-      label: 'Variação 2025 — Curitiba (%)',
-      data: quedas.variacoes,
-      backgroundColor: rgba(COLORS.secondary, 0.75),
-      borderColor: COLORS.secondary,
-      borderWidth: 1.5,
-      borderRadius: 4
-    }]
-  },
-  options: {
-    indexAxis: 'y',
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)}%` }
-      }
+let currentRegionIndex = 1; // Índice padrão: Curitiba (PR)
+let chartTopQuedasInstance;
+
+function buildChartTopQuedas(regionIndex) {
+  const ctxTopQuedas = document.getElementById('chartTopQuedas').getContext('2d');
+  if (chartTopQuedasInstance) chartTopQuedasInstance.destroy();
+  
+  const cores = [COLORS.rs, COLORS.pr, COLORS.sc];
+  const cor = cores[regionIndex];
+  
+  chartTopQuedasInstance = new Chart(ctxTopQuedas, {
+    type: 'bar',
+    data: {
+      labels: quedas.itens[regionIndex],
+      datasets: [{
+        label: `Variação 2025 — ${quedas.regioes[regionIndex]} (%)`,
+        data: quedas.variacoes[regionIndex],
+        backgroundColor: rgba(cor, 0.75),
+        borderColor: cor,
+        borderWidth: 1.5,
+        borderRadius: 4
+      }]
     },
-    scales: {
-      x: {
-        grid: { color: rgba('#374151', 0.08) },
-        ticks: { callback: v => v + '%', font: { size: 10 } }
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: { label: ctx => ` ${ctx.parsed.x.toFixed(2)}%` }
+        }
       },
-      y: {
-        grid: { display: false },
-        ticks: { font: { size: 10 } }
+      scales: {
+        x: {
+          grid: { color: rgba('#374151', 0.08) },
+          ticks: { callback: v => v + '%', font: { size: 10 } }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { font: { size: 10 } }
+        }
       }
     }
-  }
-});
+  });
+}
+
+// Inicializar com Curitiba (PR)
+buildChartTopQuedas(1);
+
+// Função para trocar entre regiões
+function switchRegionQuedas(index) {
+  currentRegionIndex = index;
+  buildChartTopQuedas(index);
+  // Atualizar botões de seleção
+  document.querySelectorAll('#filterRegiao .filter-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+}
 
 // ══════════════════════════════════════════
 // GRÁFICO 7 — ACUMULADO 12 MESES
